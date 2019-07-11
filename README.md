@@ -3,3 +3,7 @@
 TEST LIVE AT : http://poornachandvanga.pythonanywhere.com/
 
 WEBSITE TOUR VIDEO (YOUTUBE) : https://www.youtube.com/watch?v=GZhBE6CTmH8
+
+### NOTE:
+  Configure the Database before running the project.
+  
