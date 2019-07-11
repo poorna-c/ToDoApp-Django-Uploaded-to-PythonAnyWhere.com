@@ -1,0 +1,97 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Todo's</title>
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    
+
+    <script src="{% static 'js/bootstrapjqurey.js' %}"></script>
+    <script src="{% static 'js/proper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <style>
+        .height{
+            min-height: 100vh;
+        }
+        .fillbackground{
+            background: url("{% static 'images/maincover8.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: fixed;
+            opacity: 1;
+            filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+            overflow-x: hidden;
+        }
+        .applytransparent{
+            background: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="height fillbackground">
+    <!--Header Start Here-->
+    <header>
+        <!-- Navbar Start here -->
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <a href="" class="navbar navbar-brand">ToDo Application</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#NAVBAR">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="NAVBAR">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item"><a href="{% url 'home_page' %}" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="{% url 'mytodos_page' %}" class="nav-link">MyToDo's</a></li>
+                        <li class="nav-item"><a href="{% url 'contact_page' %}" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="{% url 'about_page' %}" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="{% url 'donate_page' %}" class="nav-link">Donate</a></li>
+                        <li class="nav-item"><a href="https://paypal.me/IPCPRO" target="blank" class="nav-link">Donate Paypal</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav ml-auto">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link">Profile</a></li>
+                            <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link active">Not {{user.username}}? Logout</a></li>
+                        {% else %}
+                            <li class="nav-item"><a href="{% url 'register' %}" class="nav-link">Register</a></li>
+                            <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar end here -->
+    </header>
+    <section>
+            <div class="row mt-5">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6 rounded applytransparent py-3">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="text-center ">Logout successful</h1>
+                        </div>
+                    </div>
+                    <div class="row pl-5 pb-5">
+                        <div class="col-lg-12">
+                            <label for="">You have been logged out. </label>
+                        </div>
+                        <div class="col-lg-12">
+                            <a href="{% url 'login' %}" class="h5">Login again</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+        </section>
+        <footer class="page-footer bg-dark text-white fixed-bottom">
+                <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                        <a href="https://www.linkedin.com/in/poorna-chand-902642177/" target="blank" class="text-white"> Poorna Chand</a>
+                </div>
+        </footer>
+</body>
+</html>

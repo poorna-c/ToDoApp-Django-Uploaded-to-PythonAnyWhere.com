@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Donate</title>
+
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    
+
+    <script src="{% static 'js/bootstrapjqurey.js' %}"></script>
+    <script src="{% static 'js/proper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <style>
+        .height{
+            min-height: 100vh;
+        }
+        .fillbackground{
+            background: url("{% static 'images/maincover8.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: fixed;
+            opacity: 1;
+            filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+            overflow-x: hidden;
+        }
+        .indent{
+            text-indent: 80px;
+        }
+        section{
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!--Header Start Here-->
+    <header>
+        <!-- Navbar Start here -->
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                <a href="" class="navbar navbar-brand">ToDo Application<small class="text-white" style="display:block;">Design your day</small></a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#NAVBAR">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="NAVBAR">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item"><a href="{% url 'home_page' %}" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="{% url 'mytodos_page' %}" class="nav-link">MyToDo's</a></li>
+                        <li class="nav-item"><a href="{% url 'contact_page' %}" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="{% url 'about_page' %}" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="{% url 'donate_page' %}" class="nav-link active">Donate</a></li>
+                        <li class="nav-item"><a href="https://paypal.me/IPCPRO" target="blank" class="nav-link">Donate Paypal</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav ml-auto">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link">Profile</a></li>
+                            <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link active">Not {{user.username}}? Logout</a></li>
+                        {% else %}
+                            <li class="nav-item"><a href="{% url 'register' %}" class="nav-link">Register</a></li>
+                            <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+                        {% endif %} 
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar end here -->
+    </header>
+    <!--Header End Here-->
+
+    <section class="fillbackground">
+        <div class="container my-5">
+            <h1 class="text-white mt-3">Donate</h1>
+        </div>
+    </section>
+    <section class="">
+        <div class="row my-5 ml-5">
+            <div class="col-4">
+                <div class="card" style="width:300px">
+                    <img class="card-img-top" src="{% static 'images/paypal.jpg' %}" alt="PayPal">
+                    <div class="card-body">
+                        <h4 class="card-title">Poorna Chand</h4>
+                        <p class="card-text"></p>
+                        <a href="https://paypal.me/IPCPRO" target="blank" class="btn btn-primary">Donate Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="page-footer bg-dark text-white">
+            <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                    <a href="https://www.linkedin.com/in/poorna-chand-902642177/" target="blank" class="text-white"> Poorna Chand</a>
+            </div>
+    </footer>
+</body>
+</html>

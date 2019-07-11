@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    
+
+    <script src="{% static 'js/bootstrapjqurey.js' %}"></script>
+    <script src="{% static 'js/proper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <style>
+        .height{
+            min-height: 100vh;
+        }
+        .fillbackground{
+            background: url("{% static 'images/maincover8.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: fixed;
+            opacity: 1;
+            filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+            overflow-x: hidden;
+        }
+        .applytransparent{
+            background: rgba(255, 255, 255, 0.6);
+        }
+        .block{
+            min-height: 35vh;
+            margin: 10px;
+            margin-left: 80px;
+            opacity: 0.89;
+            filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+        }
+        .block:hover{
+            padding-left: 45px;
+            transition: 0.8s;
+        }
+        ul{
+            list-style-type:square;
+        }
+    </style>
+</head>
+<body class="height fillbackground">
+    <!--Header Start Here-->
+    <header>
+        <!-- Navbar Start here -->
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <a href="{% url 'home_page' %}" class="navbar navbar-brand">ToDo Application<small class="h6" style="display:block;">Design your day</small></a>
+            
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#NAVBAR">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="NAVBAR">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item"><a href="{% url 'home_page' %}" class="nav-link active">Home</a></li>                        
+                        <li class="nav-item"><a href="{% url 'mytodos_page' %}" class="nav-link">MyToDo's</a></li>
+                        <li class="nav-item"><a href="{% url 'contact_page' %}" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="{% url 'about_page' %}" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="{% url 'donate_page' %}" class="nav-link">Donate</a></li>
+                        <li class="nav-item"><a href="https://paypal.me/IPCPRO" target="blank" class="nav-link">Donate Paypal</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav ml-auto">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link">Profile</a></li>
+                            <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link active">Not {{user.username}}? Logout</a></li>
+                        {% else %}
+                            <li class="nav-item"><a href="{% url 'register' %}" class="nav-link">Register</a></li>
+                            <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar end here -->
+    </header>
+    <!--Header End Here-->
+    <section class="container-fluid height text-white my-5">
+        <div class="row">
+            <div class="col-lg-3 bg-primary block rounded">
+                <h1 class="display-1">934</h1>
+                <h2 class="h1">Tasks Completed</h2>
+            </div>
+            <div class="col-lg-3 bg-dark block rounded">
+                <h1 class="display-1">83</h1>
+                <h2 class="h1">Upcomming Tasks</h2>
+            </div>
+            <div class="col-lg-3 bg-success block rounded">
+                <h1 class="display-1">15</h1>
+                <h2 class="h1">Tasks Onhold</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 bg-info block rounded">
+                <h1 class="display-1">1270</h1>
+                <h2 class="h1">Hours Spent</h2>
+            </div>
+            <div class="col-lg-3 bg-secondary block rounded">
+                <h1 class="display-1">500+</h1>
+                <h2 class="h1">Clients</h2>
+            </div>
+            <div class="col-lg-3 bg-warning block rounded">
+                <h1 class="display-1">46</h1>
+                <h2 class="h1">Active Users</h2>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid height rounded py-5 text-light m-0">
+        <div class="container">
+            <h1>Organize Your Day | Keep Motivated</h1>
+            <br><br>
+            <ul>
+                <li class="h3"><h3>A goal without a plan is just a wish.</h3> </li> 
+                <hr>
+                <li class="h3"> <h3>By failing to prepare, you are preparing to fail.</h3> </li>
+                <hr>
+                <li class="h3"> <h3>If you don’t know where you are going, you’ll end up someplace else.</h3></li>
+                <hr>
+                <li class="h3"> <h3>Unless commitment is made, there are only promises and hopes; but no plans.</h3></li>
+                <hr>
+                <li class="h3"> <h3>I am a person who continually destroys the possibilities of a future because of the numbers of alternative viewpoints I can focus on the present.</h3></li>
+                <hr>
+                <li class="h3"> <h3>Plans are of little importance, but planning is essential.</h3></li>
+                <hr>
+                <li class="h3"><h3>Never begin the day until it is finished on paper.</h3></li>
+                
+            </ul>
+        </div>
+    </section>
+
+    <footer class="page-footer bg-dark text-white">
+            <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                    <a href="https://www.linkedin.com/in/poorna-chand-902642177/" target="blank" class="text-white"> Poorna Chand</a>
+            </div>
+    </footer>
+</body>
+</html>
